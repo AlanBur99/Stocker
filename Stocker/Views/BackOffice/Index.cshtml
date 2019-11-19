@@ -41,18 +41,18 @@
                     {
                         <td>
                             <img src="~/Content/ReBaja.jpg" class="Destacada" />
-                            <a href='@Url.Action("SacarReBaja","Backoffice", new { Id=Pro.IdProducto})'> Sacar el ReBaja </a>
+                            <a href='@Url.Action("SacarReBaja","Backoffice", new {Id=Pro.IdProducto})'> Sacar el ReBaja </a>
                         </td>
                     }
                     else
                     {
                         <td>
-                            <a href='@Url.Action("Destacar","Backoffice", new { Id=Pro.IdProducto})'> Destacar </a>
+                            <a href='@Url.Action("ReBaja","Backoffice", new {Id=Pro.IdProducto})'> Destacar </a>
                         </td>
                     }
                 }
                 <td>
-                    <a href='@Url.Action("Eliminar","Backoffice", new { IdProd = Pro.IdProducto})'> Eliminar </a>
+                    <a href='@Url.Action("Eliminar","Backoffice", new {IdProd = Pro.IdProducto})'> Eliminar </a>
                 </td>
             </tr>
 
