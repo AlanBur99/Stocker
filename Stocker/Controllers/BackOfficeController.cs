@@ -52,6 +52,22 @@ namespace Stocker.Controllers
             return View("Index");
 
         }
+        public ActionResult ReBaja(int Id)
+        {
+            BD.ReBaja(Id);
+
+            ViewBag.ListaProdu = BD.ListadoDeProductosBack();
+            return View("Index");
+
+        }
+        public ActionResult SacarReBaja(int Id)
+        {
+            BD.SacarReBaja(Id);
+
+            ViewBag.ListaProdu = BD.ListadoDeProductosBack();
+            return View("Index");
+
+        }
 
         public ActionResult Crear()
         {
@@ -75,7 +91,7 @@ namespace Stocker.Controllers
         }
 
         [HttpPost]
-        public ActionResult ValidarNoti(Productos Prod, string Accion)
+        public ActionResult ValidarProdu(Productos Prod, string Accion)
         {
             if (ModelState.IsValid)
             {

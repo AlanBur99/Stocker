@@ -200,6 +200,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\BackOffice\Login.cshtml" />
     <Content Include="Views\BackOffice\Index.cshtml" />
+    <Content Include="Views\BackOffice\CreaoEdita.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
