@@ -1,0 +1,64 @@
+﻿@using Stocker.Models
+@{
+    ViewBag.Title = "Backoffice";
+}
+
+@{
+    <div> <a class="MargenDerecha" href='@Url.Action("Crear","Backoffice")'> Crear Noticia </a> </div>
+
+}
+
+@{
+    foreach (Productos Pro in ViewBag.ListaProdu)
+    {
+        <table>
+            <tr>
+                <td>
+                    <img src="~/Content/@Pro.Imagen" class="Chica" />
+                </td>
+                <td>
+                    <h4> @Pro.Titulo </h4>
+                </td>
+                @{
+                    <td>
+                        <a href='@Url.Action("Editar","Backoffice", new { IdProd = Pro.IdProducto})'> Editar </a>
+                    </td>
+
+                    if (Pro.Destacado == true)
+                    {
+                        <td>
+                            <img src="~/Content/Destacar.jpg" class="Destacada" />
+                            <a href='@Url.Action("SacarDestacar","Backoffice", new { Id=Pro.IdProducto})'> Sacar el Destacar </a>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            <a href='@Url.Action("Destacar","Backoffice", new { Id=Pro.IdProducto})'> Destacar </a>
+                        </td>
+                    }
+                    if (Pro.ReBaja == true)
+                    {
+                        <td>
+                            <img src="~/Content/ReBaja.jpg" class="Destacada" />
+                            <a href='@Url.Action("SacarReBaja","Backoffice", new { Id=Pro.IdProducto})'> Sacar el ReBaja </a>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            <a href='@Url.Action("Destacar","Backoffice", new { Id=Pro.IdProducto})'> Destacar </a>
+                        </td>
+                    }
+                }
+                <td>
+                    <a href='@Url.Action("Eliminar","Backoffice", new { IdProd = Pro.IdProducto})'> Eliminar </a>
+                </td>
+            </tr>
+
+        </table>
+
+    }
+    <a href='@Url.Action("Index","Home")'> Volver al inicio </a>
+}
+
