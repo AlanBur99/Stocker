@@ -8,7 +8,8 @@ namespace Stocker.Models
 {
     public static class BD
     {
-        public static string connectionstring = "Server=.;Database= Stocker;Trusted_Connection=True;";
+        //public static string connectionstring = "Server=.;Database= Stocker;Trusted_Connection=True;";
+        public static string connectionstring = "Server=.;Database=Stocker;User id=alumno; Password=alumno;";
         private static SqlConnection Conectar()
         {
             SqlConnection Com = new SqlConnection(connectionstring);
@@ -187,7 +188,7 @@ namespace Stocker.Models
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.Text;
-            Consulta.CommandText = "UPDATE Productos SET Destacada=0 WHERE IdProducto=" + Id;
+            Consulta.CommandText = "UPDATE Productos SET Destacado=0 WHERE IdProducto=" + Id;
             Consulta.ExecuteNonQuery();
             Desconectar(Conexion);
         }
@@ -196,7 +197,7 @@ namespace Stocker.Models
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.Text;
-            Consulta.CommandText = "UPDATE Productos SET Destacada=1 WHERE IdProducto=" + Id;
+            Consulta.CommandText = "UPDATE Productos SET Destacado=1 WHERE IdProducto=" + Id;
             Consulta.ExecuteNonQuery();
             Desconectar(Conexion);
         }

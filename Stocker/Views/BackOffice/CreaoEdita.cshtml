@@ -7,8 +7,11 @@
 @using Stocker.Models
 @model Productos
 
-@using (Html.BeginForm("ValidarProdu", "Backoffice", new { Accion = ViewBag.Accion }, FormMethod.Post, new {enctype = "multipart/form-data" }))
+
+@using (Html.BeginForm("ValidarProdu", "Backoffice", new { Accion = ViewBag.Accion }, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+    <br />
+    <br />
     @Html.HiddenFor(model => model.IdProducto)
     <p>Tipo de prenda</p>@Html.DropDownListFor(model => model.FkTipoPrenda, new SelectList(ViewBag.ListaTipoProdu, "IdTipoPrenda", "NombreTipoPrenda"))
     <p>Sexo</p>@Html.DropDownListFor(model => model.FkSexo, new SelectList(ViewBag.ListaTipoProdu, "IdSexo", "NombreSexo"))

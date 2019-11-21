@@ -7,7 +7,7 @@
 
 <h2>Login</h2>
 
-@using (Html.BeginForm("Index", "Backoffice", FormMethod.Post))
+@using (Html.BeginForm("Index", "BackOffice", FormMethod.Post))
 {
     <p>Username</p>@Html.TextBoxFor(model => model.Username)@Html.ValidationMessageFor(model => model.Username)<br />
     <p>Password</p>@Html.PasswordFor(model => model.Password)@Html.ValidationMessageFor(model => model.Password)<br />

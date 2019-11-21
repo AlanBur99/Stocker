@@ -4,7 +4,9 @@
 }
 
 @{
-    <div> <a class="MargenDerecha" href='@Url.Action("Crear","Backoffice")'> Crear Noticia </a> </div>
+    <br/>
+    <br/>
+    <div> <a class="MargenDerecha" href='@Url.Action("Crear","Backoffice")'> Crear Producto </a> </div>
 
 }
 
@@ -21,7 +23,7 @@
                 </td>
                 @{
                     <td>
-                        <a href='@Url.Action("Editar","Backoffice", new { IdProd = Pro.IdProducto})'> Editar </a>
+                        <a href='@Url.Action("Editar","Backoffice", new { Id = Pro.IdProducto})'> Editar </a>
                     </td>
 
                     if (Pro.Destacado == true)
@@ -47,12 +49,12 @@
                     else
                     {
                         <td>
-                            <a href='@Url.Action("ReBaja","Backoffice", new {Id=Pro.IdProducto})'> Destacar </a>
+                            <a href='@Url.Action("ReBaja","Backoffice", new {Id=Pro.IdProducto})'> Agregar a rebajas </a>
                         </td>
                     }
                 }
                 <td>
-                    <a href='@Url.Action("Eliminar","Backoffice", new {IdProd = Pro.IdProducto})'> Eliminar </a>
+                    <a href='@Url.Action("Eliminar","Backoffice", new {Id = Pro.IdProducto})'> Eliminar </a>
                 </td>
             </tr>
 
