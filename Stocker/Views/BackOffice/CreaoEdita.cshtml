@@ -14,8 +14,9 @@
     <br />
     @Html.HiddenFor(model => model.IdProducto)
     <p>Tipo de prenda</p>@Html.DropDownListFor(model => model.FkTipoPrenda, new SelectList(ViewBag.ListaTipoProdu, "IdTipoPrenda", "NombreTipoPrenda"))
-    <p>Sexo</p>@Html.DropDownListFor(model => model.FkSexo, new SelectList(ViewBag.ListaTipoProdu, "IdSexo", "NombreSexo"))
-    <p>Equipo</p>@Html.DropDownListFor(model => model.FkEquipo, new SelectList(ViewBag.ListaTipoProdu, "IdEquipo", "NombreEquipo", "FkTipoEquipo"))
+    <p>Sexo</p>@Html.DropDownListFor(model => model.FkSexo, new SelectList(ViewBag.ListaSexos, "IdSexo", "NombreSexo"))
+    <p>Equipo</p>@Html.DropDownListFor(model => model.FkEquipo, new SelectList(ViewBag.ListaEquipos, "IdEquipo", "NombreEquipo", "FkTipoEquipo"))
+    <p>Marca</p>@Html.DropDownListFor(model => model.FkMarca, new SelectList(ViewBag.ListaMarcas, "IdMarca", "NombreMarca"))
     <p>Titulo</p>@Html.TextBoxFor(model => model.Titulo)@Html.ValidationMessageFor(model => model.Titulo)<br />
     <p>Descipcion</p> @Html.TextBoxFor(model => model.Descipcion) <br />
     <p>Imagen</p> @Html.TextBoxFor(model => model.ImagenFile, new { type = "file" }) @Html.ValidationMessageFor(model => model.Imagen)<br />

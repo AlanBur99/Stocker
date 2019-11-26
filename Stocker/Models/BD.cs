@@ -9,7 +9,7 @@ namespace Stocker.Models
     public static class BD
     {
         //public static string connectionstring = "Server=.;Database= Stocker;Trusted_Connection=True;";
-        public static string connectionstring = "Server=.;Database=Stocker;User id=alumno; Password=alumno;";
+        public static string connectionstring = "Server=.;Database=Stocker;User id=alumno; Password=alumno1;";
         private static SqlConnection Conectar()
         {
             SqlConnection Com = new SqlConnection(connectionstring);
@@ -67,7 +67,65 @@ namespace Stocker.Models
             return ListaTProd;
 
         }
+        public static List<Sexos> ListadoSexos()
+        {
+            List<Sexos> ListaTProd = new List<Sexos>();
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.Text;
+            Consulta.CommandText = "SELECT * FROM Sexos";
+            SqlDataReader DataReader = Consulta.ExecuteReader();
+            while (DataReader.Read())
+            {
+                Sexos Prod = new Sexos();
+                Prod.IdSexo = Convert.ToInt32(DataReader["IdSexo"]);
+                Prod.NombreSexo = DataReader["NombreSexo"].ToString();
+                ListaTProd.Add(Prod);
+            }
+            Desconectar(Conexion);
+            return ListaTProd;
 
+        }
+        public static List<Marcas> ListadoMarcas()
+        {
+            List<Marcas> ListaTProd = new List<Marcas>();
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.Text;
+            Consulta.CommandText = "SELECT * FROM Marcas";
+            SqlDataReader DataReader = Consulta.ExecuteReader();
+            while (DataReader.Read())
+            {
+                Marcas Marc = new Marcas();
+                Marc.IdMarca = Convert.ToInt32(DataReader["IdMarca"]);
+                Marc.NombreMarca = DataReader["NombreMarca"].ToString();
+                ListaTProd.Add(Marc);
+            }
+            Desconectar(Conexion);
+            return ListaTProd;
+
+        }
+
+        public static List<Equipo> ListadoEquipos()
+        {
+            List<Equipo> ListaTProd = new List<Equipo>();
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.Text;
+            Consulta.CommandText = "SELECT * FROM Equipos";
+            SqlDataReader DataReader = Consulta.ExecuteReader();
+            while (DataReader.Read())
+            {
+                Equipo Prod = new Equipo();
+                Prod.IdEquipo = Convert.ToInt32(DataReader["IdEquipo"]);
+                Prod.NombreEquipo = DataReader["NombreEquipo"].ToString();
+                Prod.FkTipoEquipo = Convert.ToInt32(DataReader["FkTipoEquipo"]);
+                ListaTProd.Add(Prod);
+            }
+            Desconectar(Conexion);
+            return ListaTProd;
+
+        }
         public static Productos TraerProducto(int Id)
         {
             Productos UnProducto = new Productos();
@@ -248,7 +306,7 @@ namespace Stocker.Models
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.Text;
             Consulta.CommandText = "INSERT INTO Productos(FkTipoPrenda, FkMarca, FkSexo, FkEquipo, Titulo, Descipcion, Imagen, Precio, ReBaja, Destacado)" +
-            " VALUES ('" + Prod.FkTipoPrenda + "','" + Prod.FkMarca + "','" + Prod.FkSexo + "','" + Prod.FkEquipo + "','" + Prod.Titulo + "','" + Prod.Descipcion + "','" + Prod.Imagen + "','" + Prod.Precio + "','" + "','False', 'False')";
+            " VALUES ('"+Prod.FkTipoPrenda+"', '"+ Prod.FkMarca +"','" + Prod.FkSexo + "','" + Prod.FkEquipo + "','" + Prod.Titulo + "','" + Prod.Descipcion + "','" + Prod.Imagen + "','" + Prod.Precio + "','False','False')";
             Consulta.ExecuteNonQuery();
             Desconectar(Conexion);
         }

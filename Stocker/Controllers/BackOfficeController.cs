@@ -71,14 +71,20 @@ namespace Stocker.Controllers
 
         public ActionResult Crear()
         {
-            ViewBag.ListaTipoProdu = BD.ListadoDeProductosBack();
+            ViewBag.ListaTipoProdu = BD.ListadoTipoProducto();
+            ViewBag.ListaEquipos = BD.ListadoEquipos();
+            ViewBag.ListaSexos = BD.ListadoSexos();
+            ViewBag.ListaMarcas = BD.ListadoMarcas();
             ViewBag.Accion = "Crear";
             return View("CreaoEdita");
         }
         public ActionResult Editar(int Id)
         {
-            ViewBag.ListaTipoProdu = BD.ListadoDeProductosBack();
             Productos Prod = BD.TraerProducto(Id);
+            ViewBag.ListaTipoProdu = BD.ListadoTipoProducto();
+            ViewBag.ListaEquipos = BD.ListadoEquipos();
+            ViewBag.ListaSexos = BD.ListadoSexos();
+            ViewBag.ListaMarcas = BD.ListadoMarcas();
             ViewBag.Accion = "Editar";
             return View("CreaoEdita", Prod);
         }
@@ -93,7 +99,7 @@ namespace Stocker.Controllers
         [HttpPost]
         public ActionResult ValidarProdu(Productos Prod, string Accion)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValidField("Titulo"))
             {
                 if (Prod.ImagenFile != null)
                 {
@@ -120,9 +126,14 @@ namespace Stocker.Controllers
 
             else
             {
-                ViewBag.ListaTipoProdu = BD.ListadoDeProductosBack();
+                ViewBag.ListaTipoProdu = BD.ListadoTipoProducto();
+                ViewBag.ListaEquipos = BD.ListadoEquipos();
+                ViewBag.ListaSexos = BD.ListadoSexos();
+                ViewBag.ListaMarcas = BD.ListadoMarcas();
                 ViewBag.Accion = Accion;
                 return View("CreaoEdita", Prod);
+
+                
             }
         }
     }
