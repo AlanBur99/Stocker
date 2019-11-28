@@ -1,0 +1,16 @@
+﻿@using Stocker.Models
+@{
+    ViewBag.Title = "ListaProducto";
+}
+
+
+@{
+    foreach (Productos Pro in ViewBag.ListaProd)
+    {
+        <a href='@Url.Action("DetalleProducto","Home", new { IdPro = Pro.IdProducto })'>
+            <h2>@Pro.Titulo</h2>
+            <img src="~/Content/@Pro.Imagen" />
+        </a>
+    }
+
+}

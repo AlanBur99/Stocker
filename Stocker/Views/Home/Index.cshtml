@@ -1,1 +1,40 @@
-﻿
+﻿@using Stocker.Models
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div>
+    <center>
+        <img src="~/Content/LOGO.jpg" class="Logo" />
+    </center>
+
+
+    <h1>@ViewBag.Titulo</h1>
+
+
+    <a href='@Url.Action("DetalleProducto","Home", new { Id = ViewBag.Id })'>
+        <img src="~/Content/@ViewBag.Imagen" class="ImagenDest" />
+
+    </a>
+
+    <h1>@ViewBag.Titulo1</h1>
+
+    <a href='@Url.Action("DetalleProducto","Home", new { Id = ViewBag.Id1 })'>
+        <img src="~/Content/@ViewBag.Imagen1" class="ImagenDest" />
+
+    </a>
+    @{
+    //    foreach (Tipos_De_Prenda Club in ViewBag.ListaProd)
+    //    {
+    //
+    //        <a href='@Url.Action("ListaProducto","Home", new{ Id = Club.IdTipoPrenda })'>
+    //            <h3 class="TipoN">@Club.NombreTipoPrenda </h3>
+    //
+    //        </a>
+    //    }
+
+
+    }
+
+
+</div>

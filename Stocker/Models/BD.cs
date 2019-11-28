@@ -48,6 +48,33 @@ namespace Stocker.Models
             }
 
 
+        public static Productos ProdReBaja()
+        {
+            Productos Baja = new Productos();
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.Text;
+            Consulta.CommandText = "SELECT * FROM Productos WHERE ReBaja = 'True' ";
+            SqlDataReader DataReader = Consulta.ExecuteReader();
+            while (DataReader.Read())
+            {
+                Baja.IdProducto = Convert.ToInt32(DataReader["IdProducto"]);
+                Baja.FkTipoPrenda = Convert.ToInt32(DataReader["FkTipoPrenda"]);
+                Baja.FkMarca = Convert.ToInt32(DataReader["FkMarca"]);
+                Baja.FkSexo = Convert.ToInt32(DataReader["FkSexo"]);
+                Baja.FkEquipo = Convert.ToInt32(DataReader["FkEquipo"]);
+                Baja.Titulo = DataReader["Titulo"].ToString();
+                Baja.Descipcion = DataReader["Descipcion"].ToString();
+                Baja.Imagen = DataReader["Imagen"].ToString();
+                Baja.Precio = Convert.ToInt32(DataReader["Precio"]);
+                Baja.ReBaja = Convert.ToBoolean(DataReader["ReBaja"]);
+                Baja.Destacado = Convert.ToBoolean(DataReader["Destacado"]);
+            }
+            Desconectar(Conexion);
+            return Baja;
+        }
+
+
         public static List<Tipos_De_Prenda> ListadoTipoProducto()
         {
             List<Tipos_De_Prenda> ListaTProd = new List<Tipos_De_Prenda>();

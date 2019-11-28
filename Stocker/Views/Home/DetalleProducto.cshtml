@@ -1,0 +1,10 @@
+﻿@using Stocker.Models
+@{
+    ViewBag.Title = "DetalleProducto";
+}
+<center> <h2>@ViewBag.Pro.Titulo</h2> </center>
+<img src="~/Content/@ViewBag.Pro.Imagen" class="ImagenNoticia" />
+<p>@ViewBag.Pro.Precio</p>
+<p>@ViewBag.Pro.Descipcion</p>
+<a href='@Url.Action("Index","Home")'> Volver al inicio </a>
+
