@@ -48,14 +48,14 @@ namespace Stocker.Controllers
         }
 
 
-     //  public ActionResult ListadoDeProductos(int IdPro)
-     //  {
-     //      List<Productos> ListaProd = new List<Productos>();
-     //      ListaProd = BD.ListadoDeProductosXTipo(IdPro);
-     //      ViewBag.ListaProd = ListaProd;
-     //
-     //      return View();
-     //  }
+       public ActionResult ListadoDeProductos(int IdPro)
+       {
+           List<Productos> ListaProd = new List<Productos>();
+           ListaProd = BD.ListadoDeProductosXTipo(IdPro);
+           ViewBag.ListaProd = ListaProd;
+     
+           return View();
+       }
 
 
     }
